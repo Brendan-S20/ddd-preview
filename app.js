@@ -12,7 +12,18 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
     });
+    // Close when focus or a tap leaves the header
+    const head = $('header.site');
+    head.addEventListener('focusout', e => { if (e.relatedTarget && !head.contains(e.relatedTarget)) setMenu(false); });
+    document.addEventListener('click', e => { if (nav.classList.contains('open') && !head.contains(e.target)) setMenu(false); });
   }
+
+  // Slogan band: pause and play
+  const bandBtn = $('.band-toggle');
+  if (bandBtn) bandBtn.addEventListener('click', () => {
+    const paused = $('.band').classList.toggle('paused');
+    bandBtn.textContent = paused ? 'Play banner' : 'Pause banner';
+  });
 
   // Preview-only dialog for Portal and Call
   const dlg = $('#preview-dlg');
@@ -50,6 +61,7 @@
       items.forEach(li => li.classList.remove('hit'));
       out.className = 'zone-msg';
       out.textContent = '';
+      if (/^\s*\d/.test(zone.value)) { out.classList.add('maybe'); out.textContent = 'Type your city name, not a ZIP code.'; return; }
       if (q.length < 3) return;
       const hits = items.filter(li => norm(li.textContent).startsWith(q));
       if (hits.length) {
@@ -75,7 +87,7 @@
   const form = $('#book-form');
   if (!form) return;
   const steps = $$('.bstep', form), bars = $$('.progress span');
-  const err = $('#book-err'), label = $('#step-label');
+  const err = $('#book-err'), label = $('#step-label'), errHome = $('.nav-row', form);
   let i = 0;
   const params = new URLSearchParams(location.search);
   if (params.get('type') === 'commercial') $('#t-com').checked = true;
@@ -101,25 +113,40 @@
     $('#back').classList.toggle('hidden', n === 0);
     $('#next').textContent = n === steps.length - 1 ? 'Request my cleanup' : 'Next';
     label.textContent = 'Step ' + (n + 1) + ' of ' + steps.length;
-    err.textContent = '';
+    clearErr();
     if (focus) {
       $('legend', steps[n]).focus({ preventScroll: true });
       $('#book-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+  // Errors show right under the field they are about, scrolled into view (phones too)
+  function clearErr() {
+    err.textContent = '';
+    errHome.before(err);
+    $$('[aria-invalid]', form).forEach(f => { f.removeAttribute('aria-invalid'); f.removeAttribute('aria-describedby'); });
+  }
   function bad(f, msg) {
+    const box = f.closest('.field');
+    box.append(err);
     err.textContent = msg;
     f.setAttribute('aria-invalid', 'true');
-    f.focus();
+    f.setAttribute('aria-describedby', 'book-err');
+    f.focus({ preventScroll: true });
+    box.scrollIntoView({ block: 'center' });
     return false;
   }
+  form.addEventListener('input', e => { if (e.target.hasAttribute('aria-invalid') || e.target.type === 'radio') clearErr(); });
+  form.addEventListener('change', e => { if (e.target.type === 'radio') clearErr(); });
   function valid() {
     const s = steps[i];
     const radios = $$('input[type=radio]', s).filter(r => !r.closest('.hidden'));
     const names = [...new Set(radios.map(r => r.name))];
     for (const n of names) if (!$(`input[name="${n}"]:checked`, s)) {
+      const first = $(`input[name="${n}"]`, s), fs = first.closest('fieldset');
+      $('legend', fs).after(err);
       err.textContent = 'Pick how often to keep going.';
-      $(`input[name="${n}"]`, s).focus();
+      first.focus({ preventScroll: true });
+      fs.scrollIntoView({ block: 'center' });
       return false;
     }
     for (const f of $$('input[required],select[required]', s)) {
@@ -143,7 +170,8 @@
     form.classList.add('hidden');
     const done = $('#book-done');
     $('#done-name').textContent = first;
-    $('#done-plan').textContent = plan ? ' for a ' + plan.toLowerCase() + ' plan' : '';
+    const planText = { 'Twice a week': ' for a twice-a-week plan', 'One-time': ' for a one-time cleanup' };
+    $('#done-plan').textContent = plan ? (planText[plan] || ' for a ' + plan.toLowerCase() + ' plan') : '';
     done.classList.remove('hidden');
     done.focus({ preventScroll: true });
     done.scrollIntoView({ behavior: 'smooth', block: 'center' });
