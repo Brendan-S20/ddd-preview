@@ -1,15 +1,18 @@
 // Detroit Doo Disposal preview by HoundStack.
-// Preview only: nothing on this site sends, saves or calls anything.
+// Preview only: nothing on this site sends, saves or calls anything. No fetch, no form action.
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
   // Mobile menu
   const menuBtn = $('.menu-btn'), nav = $('nav.main');
-  if (menuBtn && nav) menuBtn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', open);
-  });
+  if (menuBtn && nav) {
+    const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); };
+    menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
+    });
+  }
 
   // Preview-only dialog for Portal and Call
   const dlg = $('#preview-dlg');
@@ -24,79 +27,115 @@
     $('#dlg-body').textContent = m[1];
     dlg.showModal();
   }));
-  if (dlg) $('#dlg-close').addEventListener('click', () => dlg.close());
+  if (dlg) {
+    $('#dlg-close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  }
 
-  // Service area checker
+  // Service area checker: a result links straight to booking, with the city filled in on a match
   const zone = $('#zone-input');
   if (zone) {
     const items = $$('.cities li');
     const norm = s => s.toLowerCase().replace(/township|twp\.?/g, '').replace(/[^a-z]/g, '');
+    const out = $('#zone-msg');
+    const cta = city => {
+      const a = document.createElement('a');
+      a.className = 'zone-go';
+      a.href = 'book.html' + (city ? '?city=' + encodeURIComponent(city) : '');
+      a.textContent = 'Schedule My Cleanup →';
+      return a;
+    };
     zone.addEventListener('input', () => {
-      const q = norm(zone.value), out = $('#zone-msg');
+      const q = norm(zone.value);
       items.forEach(li => li.classList.remove('hit'));
       out.className = 'zone-msg';
-      if (q.length < 3) { out.textContent = ''; return; }
+      out.textContent = '';
+      if (q.length < 3) return;
       const hits = items.filter(li => norm(li.textContent).startsWith(q));
       if (hits.length) {
         hits.forEach(li => li.classList.add('hit'));
         out.classList.add('yes');
-        out.textContent = 'You’re in our zone. ' + hits[0].textContent + ' gets scooped.';
+        const city = hits[0].textContent;
+        out.append('You’re in our zone. ' + city + ' gets scooped. ', cta(city));
       } else {
         out.classList.add('maybe');
-        out.textContent = 'Not on the list yet. If you’re in Wayne County, ask anyway — we probably cover you.';
+        out.append('Not on the list yet. If you’re in Wayne County, ask anyway. We probably cover you. ', cta(''));
       }
     });
   }
 
-  // FAQ tabs
+  // FAQ filter buttons
   const tabs = $$('.faq-tabs button');
   tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+    tabs.forEach(x => x.setAttribute('aria-pressed', x === t));
     $$('.faq-group').forEach(g => g.classList.toggle('hidden', t.dataset.tab !== 'all' && g.dataset.group !== t.dataset.tab));
   }));
 
-  // Booking wizard (preview only: no action, no network)
+  // Booking wizard (preview only: no action, no network, nothing stored)
   const form = $('#book-form');
   if (!form) return;
   const steps = $$('.bstep', form), bars = $$('.progress span');
-  const err = $('#book-err');
+  const err = $('#book-err'), label = $('#step-label');
   let i = 0;
   const params = new URLSearchParams(location.search);
   if (params.get('type') === 'commercial') $('#t-com').checked = true;
+  const wantCity = (params.get('city') || '').toLowerCase();
+  if (wantCity) {
+    const sel = $('#f-city');
+    const match = Array.from(sel.options).find(o => o.value.toLowerCase() === wantCity);
+    if (match) sel.value = match.value;
+  }
 
   function syncType() {
     const com = $('#t-com').checked;
-    $$('.only-res').forEach(e => e.classList.toggle('hidden', com));
-    $$('.only-com').forEach(e => e.classList.toggle('hidden', !com));
+    $$('.only-res', form).forEach(e => e.classList.toggle('hidden', com));
+    $$('.only-com', form).forEach(e => e.classList.toggle('hidden', !com));
   }
   $$('input[name=type]').forEach(r => r.addEventListener('change', syncType));
   syncType();
 
-  function show(n) {
+  function show(n, focus) {
     i = n;
     steps.forEach((s, k) => s.classList.toggle('hidden', k !== n));
     bars.forEach((b, k) => b.classList.toggle('on', k <= n));
     $('#back').classList.toggle('hidden', n === 0);
     $('#next').textContent = n === steps.length - 1 ? 'Request my cleanup' : 'Next';
+    label.textContent = 'Step ' + (n + 1) + ' of ' + steps.length;
     err.textContent = '';
+    if (focus) {
+      $('legend', steps[n]).focus({ preventScroll: true });
+      $('#book-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  function bad(f, msg) {
+    err.textContent = msg;
+    f.setAttribute('aria-invalid', 'true');
+    f.focus();
+    return false;
   }
   function valid() {
     const s = steps[i];
     const radios = $$('input[type=radio]', s).filter(r => !r.closest('.hidden'));
     const names = [...new Set(radios.map(r => r.name))];
-    for (const n of names) if (!$(`input[name="${n}"]:checked`, s)) { err.textContent = 'Pick one to keep going.'; return false; }
+    for (const n of names) if (!$(`input[name="${n}"]:checked`, s)) {
+      err.textContent = 'Pick how often to keep going.';
+      $(`input[name="${n}"]`, s).focus();
+      return false;
+    }
     for (const f of $$('input[required],select[required]', s)) {
       if (f.closest('.hidden')) continue;
-      if (!f.value.trim()) { err.textContent = 'We need your ' + f.dataset.label + '.'; f.focus(); return false; }
-      if (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value)) { err.textContent = 'That email looks off.'; f.focus(); return false; }
+      f.removeAttribute('aria-invalid');
+      if (!f.value.trim()) return bad(f, 'We need your ' + f.dataset.label + '.');
+      if (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value)) return bad(f, 'That email looks off.');
+      if (f.type === 'tel' && f.value.replace(/\D/g, '').length < 10) return bad(f, 'That phone number looks short.');
     }
     return true;
   }
-  $('#back').addEventListener('click', () => show(Math.max(0, i - 1)));
+  $('#back').addEventListener('click', () => show(Math.max(0, i - 1), true));
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!valid()) return;
-    if (i < steps.length - 1) return show(i + 1);
+    if (i < steps.length - 1) return show(i + 1, true);
     const pick = $(($('#t-com').checked ? 'input[name=cplan]' : 'input[name=plan]') + ':checked');
     const plan = pick ? pick.value : '';
     const first = ($('#f-name').value.trim().split(' ')[0]) || 'friend';
@@ -106,7 +145,8 @@
     $('#done-name').textContent = first;
     $('#done-plan').textContent = plan ? ' for a ' + plan.toLowerCase() + ' plan' : '';
     done.classList.remove('hidden');
+    done.focus({ preventScroll: true });
     done.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
-  show(0);
+  show(0, false);
 })();
