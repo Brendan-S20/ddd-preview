@@ -269,7 +269,7 @@ dialog::backdrop{background:rgba(15,29,51,.55)}
 .stats span{display:block;color:var(--muted);font-weight:700;font-size:15px;margin-top:4px}
 .mini-faq{margin-top:24px}
 .cities.big{margin:6px 0 0}
-.cities.big li{font-size:16px;padding:9px 16px;background:#fff;border:2px solid var(--blue-l)}
+.cities.big li{font-size:16px;padding:9px 16px;background:var(--blue-l);border-radius:10px}
 .card.cover{background-color:#fff}
 .reviews.static{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;scroll-snap-type:none}
 

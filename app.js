@@ -71,7 +71,7 @@
         out.append('You’re in our zone. ' + city + ' gets scooped. ', cta(city));
       } else {
         out.classList.add('maybe');
-        out.append('Not on the list yet. If you’re in Wayne County, ask anyway. We probably cover you. ', cta(''));
+        out.append('Not on the list yet. If you’re in Wayne County, just ask. ', cta(''));
       }
     });
   }
