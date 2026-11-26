@@ -198,3 +198,4 @@ dialog::backdrop{background:rgba(15,29,51,.55)}
   .row2{grid-template-columns:1fr}
   .zone-check{flex-direction:column}
 }
+nav.main a.btn-blue,nav.main a.btn-blue:hover{color:#fff;background:var(--blue);margin-left:8px}
