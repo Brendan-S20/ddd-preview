@@ -14,9 +14,10 @@
 <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/hero-1000.webp" imagesrcset="assets/hero-800.webp 800w, assets/hero-1000.webp 1000w, assets/hero.webp 1600w" imagesizes="100vw" fetchpriority="high">
+
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://brendan-s20.github.io/ddd-preview/#business", "name": "Detroit Doo Disposal", "url": "https://brendan-s20.github.io/ddd-preview/", "logo": "https://brendan-s20.github.io/ddd-preview/assets/logo-480.webp", "image": "https://brendan-s20.github.io/ddd-preview/assets/logo-480.webp", "telephone": "+1-734-301-7232", "slogan": "They poop, we scoop", "description": "Pet waste removal for homes and properties in Downriver and Wayne County, Michigan.", "areaServed": [{"@type": "AdministrativeArea", "name": "Wayne County, Michigan"}, {"@type": "City", "name": "Allen Park, MI"}, {"@type": "City", "name": "Brownstown Township, MI"}, {"@type": "City", "name": "Ecorse, MI"}, {"@type": "City", "name": "Flat Rock, MI"}, {"@type": "City", "name": "Gibraltar, MI"}, {"@type": "City", "name": "Grosse Ile, MI"}, {"@type": "City", "name": "Huron Township, MI"}, {"@type": "City", "name": "Lincoln Park, MI"}, {"@type": "City", "name": "Melvindale, MI"}, {"@type": "City", "name": "River Rouge, MI"}, {"@type": "City", "name": "Riverview, MI"}, {"@type": "City", "name": "Rockwood, MI"}, {"@type": "City", "name": "Romulus, MI"}, {"@type": "City", "name": "Southgate, MI"}, {"@type": "City", "name": "Taylor, MI"}, {"@type": "City", "name": "Trenton, MI"}, {"@type": "City", "name": "Woodhaven, MI"}, {"@type": "City", "name": "Wyandotte, MI"}, {"@type": "City", "name": "Canton, MI"}, {"@type": "City", "name": "Dearborn, MI"}, {"@type": "City", "name": "Dearborn Heights, MI"}, {"@type": "City", "name": "Detroit, MI"}, {"@type": "City", "name": "Garden City, MI"}, {"@type": "City", "name": "Grosse Pointe, MI"}, {"@type": "City", "name": "Inkster, MI"}, {"@type": "City", "name": "Livonia, MI"}, {"@type": "City", "name": "Plymouth, MI"}, {"@type": "City", "name": "Redford, MI"}, {"@type": "City", "name": "Westland, MI"}]}</script>
 </head><body>
@@ -27,12 +28,12 @@
 <button type="button" data-preview="call">Call for a free quote: <span class="nowrap">+1 (734) 301-7232</span></button>
 </div></div>
 <header class="site"><div class="wrap">
-<a class="brand" href="./" aria-label="Detroit Doo Disposal home"><img src="assets/logo-240.webp" srcset="assets/logo-240.webp 240w, assets/logo-480.webp 480w" sizes="92px" alt="Detroit Doo Disposal" width="92" height="87"></a>
+<a class="brand" href="./" aria-label="Detroit Doo Disposal home"><img src="assets/logo-200.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="(max-width:520px) 66px, (max-width:980px) 76px, 92px" alt="Detroit Doo Disposal" width="92" height="87"></a>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
 <nav class="main" id="main-nav" aria-label="Main"><a href="residential.html">Residential</a><a href="commercial.html">Commercial</a><a href="areas.html">Service Areas</a><a href="faq.html">FAQs</a><a href="about.html">About Us</a><a class="btn btn-green btn-sm nav-cta" href="book.html">Schedule My Cleanup</a></nav>
 </div></header>
 <main id="main" tabindex="-1">
-<section class="hero"><img class="bg" src="assets/hero.webp" alt="A German shepherd sitting on a toilet, scrolling a phone" width="1600" height="900" fetchpriority="high" decoding="async">
+<section class="hero"><img class="bg" src="assets/hero-1000.webp" srcset="assets/hero-800.webp 800w, assets/hero-1000.webp 1000w, assets/hero.webp 1600w" sizes="100vw" alt="A German shepherd sitting on a toilet, scrolling a phone" width="1600" height="900" fetchpriority="high" decoding="async">
 <div class="wrap"><div class="hero-copy">
 <h1><span class="eyebrow"><svg class="paw" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g fill="currentColor"><ellipse cx="20" cy="27" rx="9" ry="7.5"/><circle cx="10" cy="17" r="4"/><circle cx="16.5" cy="10.5" r="4"/><circle cx="23.5" cy="10.5" r="4"/><circle cx="30" cy="17" r="4"/></g></svg>Pooper scooper service · Wayne County, MI</span>THEY POOP,<br>WE SCOOP</h1>
 <p class="sub">Trusted Pet Waste Removal for Downriver &amp; All of Wayne County</p>
@@ -78,14 +79,14 @@
 <a class="btn btn-ghost" href="about.html">More about Devin</a></div></div></section>
 <section class="block cream slim"><div class="wrap center"><h2 class="h3">Trusted by local vets and animal shelters</h2>
 <ul class="partners"><li>Southgate Animal Hospital</li><li>Taylor Animal Shelter</li><li>Wyandotte Animal Adoption Center</li></ul></div></section>
-<section class="block"><div class="wrap"><div class="final pat-stripes">
-<img src="assets/logo-240.webp" srcset="assets/logo-240.webp 240w, assets/logo-480.webp 480w" sizes="132px" alt="" width="150" height="142" loading="lazy">
+<section class="block final-sec"><div class="wrap"><div class="final pat-stripes">
+<img src="assets/logo-300.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="132px" alt="" width="150" height="142" loading="lazy">
 <div class="final-copy"><h2>Ready to get your yard back?</h2><p>Book online. No contracts. We'll handle the doo.</p></div>
 <a class="btn btn-green" href="book.html">Schedule My Cleanup</a></div></div></section>
 </main>
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><img class="foot-logo" src="assets/logo-240.webp" srcset="assets/logo-240.webp 240w, assets/logo-480.webp 480w" sizes="150px" alt="Detroit Doo Disposal" width="150" height="142" loading="lazy">
+<div><img class="foot-logo" src="assets/logo-300.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="150px" alt="Detroit Doo Disposal" width="150" height="142" loading="lazy">
 <p>Your local pooper scoopers for Downriver and all of Wayne County. They poop, we scoop, all year long.</p>
 <p><span class="nowrap">+1 (734) 301-7232</span> · Downriver &amp; all of Wayne County, MI</p></div>
 <nav aria-label="Services"><h2 class="foot-h">Services</h2><ul><li><a href="residential.html">Residential</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="areas.html">Service Areas</a></li></ul></nav>

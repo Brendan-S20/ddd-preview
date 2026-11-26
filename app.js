@@ -7,7 +7,7 @@
   // Mobile menu
   const menuBtn = $('.menu-btn'), nav = $('nav.main');
   if (menuBtn && nav) {
-    const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); };
+    const setMenu = open => { nav.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); menuBtn.textContent = open ? 'Close' : 'Menu'; };
     menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); }

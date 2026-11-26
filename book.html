@@ -14,8 +14,9 @@
 <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://brendan-s20.github.io/ddd-preview/"}, {"@type": "ListItem", "position": 2, "name": "Schedule My Cleanup", "item": "https://brendan-s20.github.io/ddd-preview/book.html"}]}</script>
 </head><body>
@@ -26,7 +27,7 @@
 <button type="button" data-preview="call">Call for a free quote: <span class="nowrap">+1 (734) 301-7232</span></button>
 </div></div>
 <header class="site"><div class="wrap">
-<a class="brand" href="./" aria-label="Detroit Doo Disposal home"><img src="assets/logo-240.webp" srcset="assets/logo-240.webp 240w, assets/logo-480.webp 480w" sizes="92px" alt="Detroit Doo Disposal" width="92" height="87"></a>
+<a class="brand" href="./" aria-label="Detroit Doo Disposal home"><img src="assets/logo-200.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="(max-width:520px) 66px, (max-width:980px) 76px, 92px" alt="Detroit Doo Disposal" width="92" height="87"></a>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
 <nav class="main" id="main-nav" aria-label="Main"><a href="residential.html">Residential</a><a href="commercial.html">Commercial</a><a href="areas.html">Service Areas</a><a href="faq.html">FAQs</a><a href="about.html">About Us</a><a class="btn btn-green btn-sm nav-cta" href="#book-card">Schedule My Cleanup</a></nav>
 </div></header>
@@ -69,7 +70,7 @@
 <div class="err" id="book-err" role="alert"></div>
 <div class="nav-row"><button type="button" class="btn btn-ghost btn-sm hidden" id="back">Back</button><button type="submit" class="btn btn-green" id="next">Next</button></div>
 </form>
-<div id="book-done" class="done hidden" tabindex="-1"><img src="assets/logo-240.webp" alt="" width="150" height="142"><h2>You're on the list!</h2>
+<div id="book-done" class="done hidden" tabindex="-1"><img src="assets/logo-300.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="150px" alt="" width="150" height="142" loading="lazy"><h2>You're on the list!</h2>
 <p>Thanks, <span id="done-name"></span>. Your cleanup request<span id="done-plan"></span> is in. On the real site, Devin would follow up with your quote and first visit day.</p>
 <p class="note"><strong>Preview only:</strong> nothing was sent or saved, and no one will call you.</p>
 <a class="btn btn-blue btn-sm" href="./">Back to home</a></div>
@@ -80,7 +81,7 @@
 </main>
 <footer class="site"><div class="wrap">
 <div class="cols">
-<div><img class="foot-logo" src="assets/logo-240.webp" srcset="assets/logo-240.webp 240w, assets/logo-480.webp 480w" sizes="150px" alt="Detroit Doo Disposal" width="150" height="142" loading="lazy">
+<div><img class="foot-logo" src="assets/logo-300.webp" srcset="assets/logo-200.webp 200w, assets/logo-300.webp 300w, assets/logo-480.webp 480w" sizes="150px" alt="Detroit Doo Disposal" width="150" height="142" loading="lazy">
 <p>Your local pooper scoopers for Downriver and all of Wayne County. They poop, we scoop, all year long.</p>
 <p><span class="nowrap">+1 (734) 301-7232</span> · Downriver &amp; all of Wayne County, MI</p></div>
 <nav aria-label="Services"><h2 class="foot-h">Services</h2><ul><li><a href="residential.html">Residential</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="areas.html">Service Areas</a></li></ul></nav>
