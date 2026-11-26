@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Schedule My Cleanup | Detroit Doo Disposal (preview)</title>
+<meta name="description" content="Three quick steps. About a minute. Then we'll take it from here.">
+<link rel="icon" href="assets/mascot.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="ribbon"><b>Preview by HoundStack.</b> Not the live site. Booking here saves nothing and calls no one.</div>
+<div class="topbar"><div class="wrap">
+<button data-preview="portal">Portal</button>
+<button data-preview="call">Call for a free quote: +1 (734) 301-7232</button>
+</div></div>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="assets/mascot.webp" alt="Detroit Doo Disposal mascot with shovel and bag" width="64" height="64">
+<span>Detroit<small>DOO DISPOSAL</small></span></a>
+<nav class="main" aria-label="Main"><a href="residential.html">Residential</a><a href="commercial.html">Commercial</a><a href="areas.html">Service Areas</a><a href="faq.html">FAQs</a><a href="about.html">About Us</a><a class="btn btn-blue btn-sm" href="book.html">SIGN UP</a></nav>
+<button class="menu-btn" aria-expanded="false" aria-label="Menu">Menu</button>
+</div></header>
+<main>
+<section class="page-hero" style="padding:44px 0 34px"><div class="wrap"><span class="eyebrow">Sign up</span>
+<h1>Schedule My Cleanup</h1><p class="lead" style="margin:0">Three quick steps. About a minute. Then we'll take it from here.</p></div></section>
+<section class="block" style="padding-top:40px"><div class="wrap book">
+<div class="card">
+<form id="book-form" novalidate autocomplete="off">
+<div class="progress" aria-hidden="true"><span></span><span></span><span></span></div>
+<fieldset class="bstep"><legend>Who's this for?</legend>
+<div class="opts">
+<div class="opt"><input type="radio" name="type" id="t-res" value="Residential" checked><label for="t-res">🏡 My home<small>Yard, patio, dog run</small></label></div>
+<div class="opt"><input type="radio" name="type" id="t-com" value="Commercial"><label for="t-com">🏢 A property<small>Apartments, HOA, park, daycare</small></label></div>
+</div>
+<div class="only-res"><legend style="font-size:20px">How often?</legend><div class="opts">
+<div class="opt"><input type="radio" name="plan" id="p1" value="Weekly"><label for="p1">Weekly<small>Most popular</small></label></div><div class="opt"><input type="radio" name="plan" id="p2" value="Bi-weekly"><label for="p2">Bi-weekly<small>Every other week</small></label></div><div class="opt"><input type="radio" name="plan" id="p3" value="Monthly"><label for="p3">Monthly<small>Light-duty yards</small></label></div><div class="opt"><input type="radio" name="plan" id="p4" value="One-time"><label for="p4">One-time<small>Parties, move-outs, spring thaw</small></label></div><div class="opt"><input type="radio" name="plan" id="p5" value="Twice a week"><label for="p5">Twice a week<small>Busy dogs</small></label></div>
+</div></div>
+<div class="only-com hidden"><legend style="font-size:20px">How often?</legend><div class="opts">
+<div class="opt"><input type="radio" name="cplan" id="c1" value="Weekly"><label for="c1">Weekly<small>Steady traffic</small></label></div><div class="opt"><input type="radio" name="cplan" id="c2" value="Bi-weekly"><label for="c2">Bi-weekly<small>Lighter traffic</small></label></div><div class="opt"><input type="radio" name="cplan" id="c3" value="Custom"><label for="c3">Custom<small>Built around your site</small></label></div>
+</div></div>
+</fieldset>
+<fieldset class="bstep hidden"><legend>Tell us about the space</legend>
+<div class="field"><label for="f-city">City</label><select id="f-city" required data-label="city"><option value="">Pick your city</option><option>Allen Park</option><option>Brownstown Township</option><option>Canton</option><option>Dearborn</option><option>Dearborn Heights</option><option>Detroit</option><option>Ecorse</option><option>Flat Rock</option><option>Garden City</option><option>Gibraltar</option><option>Grosse Ile</option><option>Grosse Pointe</option><option>Huron Township</option><option>Inkster</option><option>Lincoln Park</option><option>Livonia</option><option>Melvindale</option><option>Plymouth</option><option>Redford</option><option>River Rouge</option><option>Riverview</option><option>Rockwood</option><option>Romulus</option><option>Southgate</option><option>Taylor</option><option>Trenton</option><option>Westland</option><option>Woodhaven</option><option>Wyandotte</option><option>Somewhere else in Wayne County</option></select></div>
+<div class="only-res"><div class="field"><label for="f-dogs">How many dogs?</label><select id="f-dogs"><option>1</option><option>2</option><option>3</option><option>4+</option></select></div>
+<div class="field"><label for="f-yard">Yard size</label><select id="f-yard"><option>Small</option><option>Medium</option><option>Large</option><option>Not sure</option></select></div></div>
+<div class="only-com hidden"><div class="field"><label for="f-prop">Property type</label><select id="f-prop"><option>Apartment complex</option><option>HOA or condo</option><option>Park or trail</option><option>Dog daycare</option><option>Other pet-friendly business</option></select></div>
+<div class="field"><label for="f-sites">How many properties?</label><select id="f-sites"><option>1</option><option>2–5</option><option>6+</option></select></div></div>
+<div class="field"><label for="f-gate">Anything we should know? <span class="note">(gate code, dog names, where the mess hides)</span></label><textarea id="f-gate" rows="3"></textarea></div>
+</fieldset>
+<fieldset class="bstep hidden"><legend>How do we reach you?</legend>
+<div class="field"><label for="f-name">Name</label><input id="f-name" required data-label="name"></div>
+<div class="row2"><div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" required data-label="phone"></div>
+<div class="field"><label for="f-email">Email</label><input id="f-email" type="email" required data-label="email"></div></div>
+<p class="note">We only use this to set up your service.</p>
+</fieldset>
+<div class="err" id="book-err" role="alert"></div>
+<div class="nav-row"><button type="button" class="btn btn-ghost btn-sm hidden" id="back">Back</button><button type="submit" class="btn btn-green" id="next" style="margin-left:auto">Next</button></div>
+</form>
+<div id="book-done" class="done hidden"><div class="big">🎉</div><h2>You're on the list!</h2>
+<p>Thanks, <span id="done-name"></span>. Your cleanup request<span id="done-plan"></span> is in. On the real site, Devin would follow up with your quote and first visit day.</p>
+<p class="note"><strong>Preview only:</strong> nothing was sent or saved, and no one will call you.</p>
+<a class="btn btn-blue btn-sm" href="index.html">Back to home</a></div>
+</div>
+<aside><div class="card"><h3>What happens next</h3><ul class="ticks"><li>We confirm your quote</li><li>We set your first visit day</li><li>You don't need to be home</li><li>No contract. Pause anytime</li></ul>
+<p class="note">Would you rather talk to someone? Call +1 (734) 301-7232.</p></div></aside>
+</div></section>
+</main>
+<footer class="site"><div class="wrap">
+<div class="cols">
+<div><img src="assets/mascot.webp" alt="" width="72" height="72" style="background:#fff;border-radius:50%;padding:4px;margin-bottom:12px">
+<p>Locally owned pooper scooper service for Downriver and all of Wayne County. We keep your yard clean, safe and poop-free, all year long.</p>
+<p>+1 (734) 301-7232 · Downriver &amp; all of Wayne County, MI</p></div>
+<div><h4>Services</h4><ul><li><a href="residential.html">Residential</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="areas.html">Service Areas</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="faq.html">FAQs</a></li><li><a href="book.html">Sign Up</a></li></ul></div>
+</div>
+<div class="madeby"><span>© 2026 Detroit Doo Disposal</span><span><strong>Made by HoundStack</strong></span></div>
+</div></footer>
+<div class="mbar"><a class="btn btn-green" href="book.html">Schedule My Cleanup</a><button class="btn btn-ghost" data-preview="call">Call</button></div>
+<dialog id="preview-dlg"><h3 id="dlg-title"></h3><p id="dlg-body"></p><button class="btn btn-blue btn-sm" id="dlg-close">Got it</button></dialog>
+<script src="app.js"></script>
+</body></html>
