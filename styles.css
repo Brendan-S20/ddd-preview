@@ -68,6 +68,8 @@ nav.main a.btn-primary:hover { color: #fff; }
 .section-head > :last-child, .faq-group > :last-child, .post > :last-child { margin-bottom: 0; }
 .after-faq { margin-top: var(--s3); }
 .form-note { margin-top: var(--s2); }
+.checks li:last-child { margin-bottom: 0; }
+.quote-layout > * > :last-child { margin-bottom: 0; }
 .more-posts { margin-top: var(--s5); }
 .eyebrow { display: block; font-size: var(--t-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: var(--s1); }
 
