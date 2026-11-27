@@ -144,6 +144,10 @@ details p { margin: var(--s1) 0 0; color: var(--ink-2); }
 /* Article */
 .post p { font-size: var(--t-md); }
 .source { border-left: 3px solid var(--line); padding-left: var(--s2); color: var(--ink-2); margin: var(--s4) 0; }
+.terms-note { border-left: 3px solid var(--line); padding-left: var(--s2); color: var(--ink-2); margin: 0 0 var(--s4); }
+.terms h2 { margin: var(--s4) 0 var(--s1); }
+.terms p { font-size: var(--t-base); }
+.terms-foot { margin-top: var(--s3); }
 .mentions { list-style: none; padding: 0; margin: 0 0 var(--s5); }
 .mentions li { padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
 .mentions h3 { margin-bottom: 4px; }
