@@ -29,7 +29,7 @@ ul, ol { margin: 0 0 var(--s2); padding-left: 1.25em; }
 .skip { position: absolute; left: var(--s2); top: -60px; background: var(--ink); color: #fff; padding: var(--s1) var(--s2); border-radius: var(--r); z-index: 10; }
 .skip:focus { top: var(--s1); }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
-.narrow { max-width: 760px; }
+.narrow > * { max-width: 760px; }
 
 /* Preview notice */
 .ribbon { background: #fff8e1; border-bottom: 1px solid #f0e2b0; font-size: var(--t-sm); text-align: center; padding: var(--s1) var(--pad); color: #5b4a12; }
@@ -63,6 +63,12 @@ nav.main a.btn-primary:hover { color: #fff; }
 .section.tight { padding: var(--s6) 0; }
 .section.alt { background: var(--bg-2); }
 .section-head { max-width: 720px; margin-bottom: var(--s5); }
+/* No stray bottom margin at the end of a section: every section ends on its padding */
+.section .wrap > :last-child, .section .wrap.grid > * > :last-child, .section .split > * > :last-child,
+.section-head > :last-child, .faq-group > :last-child, .post > :last-child { margin-bottom: 0; }
+.after-faq { margin-top: var(--s3); }
+.form-note { margin-top: var(--s2); }
+.more-posts { margin-top: var(--s5); }
 .eyebrow { display: block; font-size: var(--t-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue); margin-bottom: var(--s1); }
 
 /* Hero */
@@ -109,6 +115,9 @@ a.card:hover { border-color: var(--blue); }
 .cities { list-style: none; padding: 0; margin: 0; columns: 3; column-gap: var(--s3); }
 .cities li { padding: 6px 0; border-bottom: 1px solid var(--line); break-inside: avoid; }
 .cities a { text-decoration: none; }
+.rows { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+.rows li { display: grid; grid-template-columns: 10em 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+.rows span { color: var(--ink-2); }
 
 /* Quotes from the live site */
 .quote { margin: 0; }
@@ -119,11 +128,14 @@ a.card:hover { border-color: var(--blue); }
 /* Page header */
 .page-head { padding: var(--s6) 0 var(--s5); border-bottom: 1px solid var(--line); }
 .crumbs ol { list-style: none; padding: 0; margin: 0 0 var(--s3); display: flex; flex-wrap: wrap; gap: var(--s1); font-size: var(--t-sm); color: var(--ink-2); }
-.crumbs li + li::before { content: "/"; margin-right: var(--s1); color: var(--line); }
+.crumbs li:not(:last-child)::after { content: "/"; margin-left: var(--s1); color: var(--ink-2); opacity: .5; }
 
 /* FAQ */
 details { border-bottom: 1px solid var(--line); padding: var(--s2) 0; }
-details summary { cursor: pointer; font-weight: 600; list-style-position: outside; }
+details summary { cursor: pointer; font-weight: 600; list-style: none; position: relative; padding-right: var(--s4); }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "+"; position: absolute; right: 0; top: 0; font-weight: 400; color: var(--ink-2); }
+details[open] summary::after { content: "\2013"; }
 details p { margin: var(--s1) 0 0; color: var(--ink-2); }
 .faq-group + .faq-group { margin-top: var(--s5); }
 
@@ -154,8 +166,9 @@ footer.site .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(
 footer.site img { width: 72px; height: 68px; object-fit: contain; margin-bottom: var(--s2); }
 footer.site h2 { font-size: var(--t-base); color: var(--ink); margin-bottom: var(--s1); }
 footer.site ul { list-style: none; padding: 0; margin: 0; }
-footer.site li { padding: 4px 0; }
+footer.site li a { display: inline-block; padding: 11px 0; }
 footer.site a { color: var(--ink-2); }
+.site-note { margin: 0; flex-basis: 100%; }
 .foot-note { border-top: 1px solid var(--line); margin-top: var(--s5); padding-top: var(--s3); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2); }
 
 dialog { border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); max-width: 420px; }
@@ -184,6 +197,8 @@ dialog { border: 1px solid var(--line); border-radius: var(--r); padding: var(--
   .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
   .cities, .grid-2 .cities { columns: 2; }
   .card { padding: var(--s3); }
+  .section .wrap.grid { row-gap: var(--s5); }
+  .rows li { grid-template-columns: 1fr; gap: 2px; }
   .btn-row .btn { flex: 1 1 100%; }
   .brand small { display: none; }
 }
