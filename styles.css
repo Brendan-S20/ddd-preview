@@ -739,3 +739,4 @@ table.sched{width:100%;max-width:960px;border-collapse:collapse;background:var(-
 .post-list li::before{content:"";position:absolute;left:0;top:1.15em;width:8px;height:8px;border-radius:50%;background:var(--blue)}
 .post h2:first-child{margin-top:0}
 .page-hero:has(+ .s-article){padding-bottom:32px}
+.link-row{display:flex;flex-wrap:wrap;gap:0 24px}
