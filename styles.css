@@ -537,3 +537,157 @@ table.sched{width:100%;max-width:960px;border-collapse:collapse;background:var(-
   .path:hover,.post-card:hover,a.chip:hover,.city-rows a:hover svg{transform:none}
   .clippings .clipping:nth-child(odd){transform:none}
 }
+
+/* ================= personality pass (Nov 27 evening): logo as the brand, sign hero, tags, walk, routes ================= */
+.brand img{width:48px}
+.logo-disc{display:inline-grid;place-items:center;flex:none;background:#fff;border-radius:50%;padding:16px;box-shadow:0 10px 30px -12px rgba(11,37,69,.45)}
+.logo-disc img{width:100%;height:auto}
+/* home sign hero */
+.home-sign{padding-top:56px;padding-bottom:72px}
+.home-sign .wrap{position:relative;padding-bottom:40px}
+.home-sign .stake{left:calc(var(--pad) + 30%)}
+.home-sign .stake+.stake{left:calc(var(--pad) + 62%)}
+.sign-band{position:relative;z-index:1;background:var(--blue);color:#fff;border-radius:24px;padding:48px 40px}
+.sign-band::before{content:"";position:absolute;inset:8px;border:2px solid #fff;border-radius:17px;pointer-events:none}
+.sign-grid{position:relative;display:grid;gap:32px;align-items:center}
+.logo-xl{width:200px;justify-self:center}
+.sign-text h1{color:#fff;font-size:clamp(1.75rem,1.3rem + 1.8vw,2.625rem);margin-bottom:16px}
+.sign-line{font:700 clamp(2.75rem,1.6rem + 4.6vw,5.25rem)/.92 var(--f-label);text-transform:uppercase;letter-spacing:.005em;color:#fff;margin:0 0 20px;max-width:none}
+.sign-text .lead{color:#E6EEF8}
+.eyebrow.on-blue{color:#fff;opacity:.92}
+.text-link.on-blue,.sign-band a.tel{color:#fff}
+.sign-band sup.dg{color:#E6EEF8}
+.sign-band :focus-visible{outline-color:var(--amber)}
+/* quit list */
+.quit{max-width:780px}
+.quit h2{margin-bottom:28px}
+.quit-list li{font:700 clamp(1.5rem,1.15rem + 1.5vw,2.25rem)/1.2 var(--f-head);letter-spacing:-.01em;padding:18px 0;border-bottom:1px solid var(--line);margin:0}
+.quit-list s{text-decoration:none;background:linear-gradient(var(--leaf),var(--leaf)) 0 58%/100% .16em no-repeat;padding:0 2px}
+.quit-p{margin-top:28px;font:700 1.25rem/1.4 var(--f-label);text-transform:uppercase;letter-spacing:.04em;color:var(--green)}
+/* snow band */
+.snow{padding-top:88px}
+.snow-line{position:absolute;top:0;left:0;right:0;height:14px;background:radial-gradient(circle at 12px -2px,#fff 11px,transparent 12px) 0 0/24px 14px repeat-x}
+.snow-grid{display:grid;gap:24px;align-items:center}
+.snow h2{color:#fff}
+.snow p{color:var(--on-navy);margin:0}
+.snow-narrow{padding:80px 0 56px}
+.snow-narrow .snow-grid{max-width:720px;text-align:center;justify-items:center}
+.snow-narrow p{font:700 1.5rem/1.35 var(--f-head);color:#fff}
+/* meet devin chips */
+.clip-chips{display:flex;flex-wrap:wrap;gap:12px;margin:0}
+.clip-chip{display:flex;flex-direction:column;background:var(--sand);border-radius:12px;padding:12px 16px;text-decoration:none;color:var(--ink);border-left:4px solid var(--blue)}
+.clip-chip .press-name{font-weight:600}
+.clip-chip .label{margin:2px 0 0}
+/* residential photo hero with logo sticker */
+.res-hero-sec{padding-top:48px;padding-bottom:96px}
+.sticker-photo{position:relative;margin:0;max-width:440px}
+.logo-sticker{position:absolute;width:132px;right:-28px;bottom:-28px;padding:12px}
+.formula-line{margin-top:24px;font:700 1.0625rem/1.4 var(--f-label);text-transform:uppercase;letter-spacing:.04em;color:var(--blue)}
+/* schedule tags */
+.tags{display:grid;gap:16px;margin:0}
+.tag{position:relative;background:var(--white);border:1px solid var(--line);border-radius:14px 14px 18px 18px;padding:40px 22px 22px;margin:0}
+.tag-hole{position:absolute;top:14px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--sand);border:2px solid var(--line)}
+.tag h3{font:700 1.5rem/1.1 var(--f-label);text-transform:uppercase;letter-spacing:.03em;color:var(--navy);margin:0 0 6px}
+.tag-freq{font-weight:600;color:var(--blue);margin:0 0 10px}
+.tag p:last-child{margin:0;color:var(--ink-2)}
+.routes-note{display:flex;gap:12px;align-items:center;margin:28px 0 0;font-weight:600}
+.routes-note .icon{color:var(--green)}
+.bg-lawn-card{background:var(--lawn);border-radius:16px;padding:28px}
+.bg-lawn-card .tile{background:var(--white)}
+.occasions li{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+/* commercial */
+.com-hero{max-width:860px}
+.logo-card{display:inline-block;width:144px;background:#fff;border-radius:16px;padding:12px;margin-bottom:28px}
+.logo-card img{width:100%}
+.com-hero h1{color:#fff;font-size:var(--t-display);line-height:1.02}
+.eyebrow.on-navy{color:var(--leaf)}
+.walk-photo{margin:0;justify-self:center}
+.walk-photo .crop-c{max-width:340px}
+.walk-photo figcaption{margin-top:12px;font-size:var(--t-small);color:var(--ink-2)}
+.rail{position:relative;margin:28px 0 32px;padding-left:36px}
+.rail::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:3px;background:var(--blue);border-radius:2px}
+.rail li{position:relative;margin:0 0 24px}
+.rail li::before{content:"";position:absolute;left:-36px;top:4px;width:19px;height:19px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.rail h3{font:700 1.25rem/1.25 var(--f-label);text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px;color:var(--navy)}
+.rail p{margin:0}
+.after-card{background:var(--sand);border-radius:16px;padding:24px 28px}
+.after-card .checks li:last-child{margin-bottom:0}
+.table-scroll{max-width:100%}
+.sched-3 tbody th{width:28%}
+.route-freq{display:block;font:600 1rem/1.3 var(--f-body);text-transform:none;letter-spacing:0;color:var(--blue);margin-top:4px}
+.who-row-h{margin-top:40px}
+.who-row{display:flex;flex-wrap:wrap;gap:12px 28px;margin:0}
+.who-row li{display:flex;gap:10px;align-items:center;margin:0}
+.who-row li span:not(.tile){font-size:1rem;line-height:1.35}
+.winter-strip{display:flex;gap:14px;align-items:center;margin:0;max-width:none;font:700 clamp(1.25rem,1.1rem + .6vw,1.5rem)/1.35 var(--f-head)}
+.winter-strip .icon{color:var(--blue);width:28px;height:28px}
+.biz-card{justify-self:center;width:100%;max-width:380px;background:#fff;color:var(--ink);border-radius:20px;padding:32px;text-align:center;box-shadow:var(--shadow)}
+.biz-card img{width:120px;margin:0 auto 12px}
+.biz-name{font:800 1.375rem/1.2 var(--f-head);margin:0 auto 4px}
+.biz-tag{font:700 1rem/1.3 var(--f-label);text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin:0 auto 12px}
+.biz-phone{font:700 1.75rem/1.1 var(--f-label);margin:0 auto 20px}
+.biz-card a.tel{color:var(--navy)}
+.closing-card .closing-text{text-align:left}
+.closing-card .closing-text p{margin-left:0}
+/* yard sign + footer logo bigger */
+.sign-logo{width:120px;height:120px}
+.sign-logo img{width:104px}
+.logo-tile{padding:14px}
+.logo-tile img{width:144px}
+/* cities */
+.card-logo{display:block;width:96px;margin:0 auto 16px}
+.card-logo img{width:100%}
+.local-line{display:flex;gap:12px;align-items:flex-start;max-width:720px;margin:0 0 40px;font:700 clamp(1.375rem,1.15rem + 1vw,1.875rem)/1.3 var(--f-head);letter-spacing:-.01em;color:var(--ink)}
+.local-line .pin{width:28px;height:28px;color:var(--green);margin-top:4px;flex:none}
+.local-big{font:700 clamp(1.375rem,1.15rem + 1vw,1.875rem)/1.3 var(--f-head);margin:0}
+.tag-list{margin:16px 0 0;border-top:1px solid var(--line)}
+.tag-list li{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,9rem) minmax(0,1fr);gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line);margin:0;align-items:baseline}
+.tag-list strong{font:700 1.125rem/1.2 var(--f-label);text-transform:uppercase;letter-spacing:.03em;color:var(--navy)}
+.tag-list .tag-freq{margin:0}
+.tag-list span:last-child{color:var(--ink-2);font-size:1rem}
+@media (min-width:720px){
+  .tags{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  header.site .wrap{min-height:80px}
+  .brand img{width:64px}
+  .sign-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px}
+  .logo-xl{width:272px}
+  .sign-band{padding:64px 56px}
+  .snow-full .snow-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .snow-full .snow-btn{justify-self:end}
+  .tags{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .closing-flip .closing-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .closing-flip .yard-sign-wrap{order:-1}
+  .closing-flip .closing-text{text-align:left}
+  .closing-flip .closing-text p{margin-left:0}
+}
+@media (max-width:1023px){
+  .res-hero .sticker-photo{margin:0 auto}
+}
+@media (max-width:719px){
+  .home-sign{padding-top:32px;padding-bottom:48px}
+  .sign-band{padding:36px 24px}
+  .logo-xl{width:184px}
+  .sign-text{text-align:left}
+  .logo-sticker{width:104px;right:-8px;bottom:-24px}
+  .sticker-photo{max-width:none}
+  .sign-logo{width:96px;height:96px}
+  .sign-logo img{width:82px}
+  .logo-tile img{width:112px}
+  .tag{padding:36px 20px 20px}
+  .sched-3 thead{display:none}
+  .sched-3,.sched-3 tbody,.sched-3 tr,.sched-3 th,.sched-3 td{display:block;width:100%}
+  .sched-3 tbody th{width:100%;border-bottom:0;padding-bottom:4px}
+  .sched-3 td{border-bottom:0;padding-top:6px;padding-bottom:6px}
+  .sched-3 td::before{display:block;font:700 .875rem/1.3 var(--f-label);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+  .sched-3 td:nth-of-type(1)::before{content:"What's covered"}
+  .sched-3 td:nth-of-type(2)::before{content:"Who it's for"}
+  .sched-3 tr{border-bottom:1px solid var(--line);padding-bottom:12px}
+  .sched-3 tr:last-child{border-bottom:0}
+  .tag-list li{grid-template-columns:1fr}
+  .biz-card{padding:24px}
+  .snow{padding-top:64px}
+}
+.bg-lawn-card .occasions{display:block;grid-template-columns:none}
+.walk-photo{width:100%;max-width:340px}
