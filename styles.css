@@ -231,7 +231,7 @@ details p{margin:0 0 20px}
 /* ---------- P15 panels, residential extras ---------- */
 .panel{background:var(--lawn);border-radius:16px;padding:32px}
 .panel .checks{margin-bottom:0}
-.panel-foot{color:var(--ink-2);margin:16px 0 0;border-top:1px solid #C9D8BC;padding-top:16px}
+.panel-foot{color:var(--ink-2);margin:16px 0 0;border-top:1px solid #C9D8BC;padding-top:16px;max-width:none}
 .panel-foot a{display:inline-block;padding:10px 0}
 .occasions{display:grid;gap:16px var(--gap);margin:0}
 .occasions li{display:flex;align-items:center;gap:16px;font-weight:600;line-height:1.35}
@@ -715,3 +715,10 @@ table.sched{width:100%;max-width:960px;border-collapse:collapse;background:var(-
   .steps-row li::before{top:0}
   .steps-row li:not(:last-child)::after{left:19px;top:8px;bottom:auto;right:calc(-1 * var(--gap));width:auto;height:3px}
 }
+
+/* Fill pass 2 (Nov 27 evening): follow lines under the winter band, the commercial winter strip and the city schedule chips */
+.snow-narrow .snow-more{font:400 1.125rem/1.6 var(--f-body);color:#fff;opacity:.92;margin:16px auto 0;max-width:60ch}
+.strip-more{margin:12px 0 0 42px;max-width:66ch;color:var(--ink-2)}
+.strip-more .text-link,.often-more .text-link{display:block;width:fit-content;margin-top:4px;padding:8px 0}
+.often-more{margin:20px 0 0;max-width:66ch;color:var(--ink-2)}
+@media (max-width:600px){.strip-more{margin-left:0}}
